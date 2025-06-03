@@ -1,0 +1,94 @@
+.button-reusable {
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--border-radius-input, 8px);
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.1s ease,
+    box-shadow 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* primary button (eg Login, Register) */
+.button-reusable.primary {
+  background-color: var(--accent-color, #c5b358);
+  color: var(--primary-background, #121212);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button-reusable.primary:hover:not(:disabled) {
+  background-color: var(--accent-hover, #dcd089);
+  box-shadow: 0 7px 20px rgba(197, 179, 88, 0.25);
+  transform: translateY(-1px);
+}
+
+.button-reusable.primary:active:not(:disabled) {
+  transform: translateY(0px);
+  box-shadow: 0 3px 10px rgba(197, 179, 88, 0.2);
+}
+
+.button-reusable.primary:disabled {
+  background-color: var(--input-border-color, #3a3a3a);
+  color: var(--text-secondary, #b0b0b0);
+  cursor: not-allowed;
+}
+
+/* link Button (eg "Retrieve Password", "Request an Invitation") */
+.button-reusable.link {
+  background: none;
+  padding: 0;
+  margin: 0;
+  color: var(--text-secondary, #b0b0b0);
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.button-reusable.link:hover:not(:disabled) {
+  color: var(--accent-hover, #dcd089);
+  text-decoration: underline;
+  background: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.button-reusable.link:disabled {
+  color: var(--input-border-color, #3a3a3a);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+/* secondary button  */
+.button-reusable.secondary {
+  background-color: var(--input-background, #2c2c2c);
+  color: var(--accent-color, #c5b358);
+  border: 1px solid var(--accent-color, #c5b358);
+}
+
+.button-reusable.secondary:hover:not(:disabled) {
+  background-color: rgba(197, 179, 88, 0.1);
+  border-color: var(--accent-hover, #dcd089);
+  color: var(--accent-hover, #dcd089);
+  transform: translateY(-1px);
+}
+
+/* icon button (eg password toggle) */
+.button-reusable.icon {
+  background: none;
+  padding: 5px;
+  color: var(--text-secondary);
+  font-size: 1.1em;
+  border-radius: 50%; /* round bc it's just an icon */
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.button-reusable.icon:hover:not(:disabled) {
+  color: var(--accent-hover);
+  background-color: rgba(255, 255, 255, 0.1); /* background on hover */
+}

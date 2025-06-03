@@ -1,38 +1,36 @@
-.App {
-  text-align: center;
+:root {
+  --primary-background: #121212;
+  --secondary-background: #1e1e1e;
+  --form-background: #252525;
+
+  --text-primary: #e8e8e8;
+  --text-secondary: #b0b0b0;
+  --text-headings: #ffffff;
+
+  --accent-color: #c5b358;
+  --accent-hover: #dcd089;
+
+  --input-border-color: #3a3a3a;
+  --input-focus-border-color: var(--accent-color);
+  --input-background: #2c2c2c;
+  --input-text-color: var(--text-primary);
+
+  --error-color: #ff6b6b;
+  --error-background: rgba(255, 107, 107, 0.1);
+
+  --font-family-headings: "Playfair Display", serif;
+  --font-family-body: "Montserrat", sans-serif;
+
+  --border-radius-main: 10px;
+  --border-radius-input: 8px;
+  --shadow-subtle: 0 6px 18px rgba(0, 0, 0, 0.25);
+  --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--primary-background);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.6;
 }

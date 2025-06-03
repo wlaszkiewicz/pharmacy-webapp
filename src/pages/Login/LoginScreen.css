@@ -1,0 +1,231 @@
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: stretch;
+  background-color: var(--primary-background);
+  font-family: var(--font-family-body);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* Artwork */
+.login-artwork {
+  flex-basis: 58%;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 70px;
+  color: var(--text-headings);
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.artwork-brand-logo {
+  max-width: 70%;
+  max-height: 300px;
+  height: auto;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.login-artwork p {
+  /* Tagline under the logo */
+  font-size: clamp(1em, 1.5vw, 1.3em);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 450px;
+  line-height: 1.7;
+  z-index: 1;
+  text-align: center;
+}
+
+.login-artwork::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-image: url('/path.svg'); */
+  opacity: 0.03;
+  z-index: 0;
+}
+
+/* Form */
+.login-form-wrapper {
+  flex-basis: 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 50px;
+  background-color: var(--form-background);
+  box-sizing: border-box;
+  box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px 0;
+}
+
+.logo-container {
+  /* For "MEMBER SIGN IN" text */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-container h3 {
+  font-family: var(--font-family-body);
+  font-size: 1.6em;
+  font-weight: 600;
+  color: var(--text-headings);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.logo-container p {
+  /* Subtext under "MEMBER SIGN IN" */
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  margin-bottom: 25px;
+  font-weight: 400;
+}
+
+.error-message {
+  background-color: var(--error-background);
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+  padding: 12px 15px;
+  border-radius: var(--border-radius-input);
+  margin-bottom: 25px;
+  font-size: 0.9em;
+  text-align: left;
+  font-weight: 500;
+}
+
+.password-input-group {
+  position: relative; /*positioning the toggle button */
+}
+
+.password-toggle-button-reusable {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 35px;
+  font-size: 0.88em;
+}
+
+.options label {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.options input[type="checkbox"] {
+  margin-right: 10px;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--input-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  top: 1px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+  vertical-align: middle;
+}
+.options input[type="checkbox"]:checked {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+.options input[type="checkbox"]:checked::after {
+  content: "✔";
+  font-size: 12px;
+  color: var(--primary-background);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+.options input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 2px rgba(197, 179, 88, 0.2);
+}
+
+.login-submit-button {
+  width: 100%;
+}
+
+.create-account-link {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  text-align: center;
+  font-weight: 400;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .login-container {
+    flex-direction: column; /* form below artwork */
+  }
+  .login-artwork {
+    flex-basis: auto;
+    min-height: 300px;
+    padding: 40px 30px;
+  }
+  .login-form-wrapper {
+    flex-basis: auto;
+    padding: 30px 25px;
+    box-shadow: none; /* remove side shadow when stacked */
+  }
+  .login-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-artwork p {
+    /* Tagline */
+    font-size: 0.95em;
+  }
+  .logo-container h3 {
+    /* "MEMBER SIGN IN" */
+    font-size: 1.4em;
+  }
+  .logo-container p {
+    /* Subtext */
+    font-size: 0.9em;
+  }
+  .options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px; /* space between checkbox and link when stacked */
+  }
+  .options label {
+    width: 100%;
+  }
+  .options .button-reusable.link {
+    /* "Retrieve Password" */
+    margin-top: 5px; /* space between checkbox and link */
+  }
+}

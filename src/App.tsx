@@ -1,26 +1,65 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import LoginScreen from "./pages/Login/LoginScreen";
+import RegisterScreen from "./pages/Register/RegisterScreen";
+import HomeScreen from "./pages/Home/Home";
+import "./App.css";
+
+type ScreenView = "login" | "register" | "home";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currentScreen, setCurrentScreen] = useState<ScreenView>("login");
+
+  const handleLoginSuccess = () => {
+    setCurrentScreen("home");
+  };
+
+  const handleRegisterSuccess = () => {
+    alert("Registration successful! Please log in.");
+    setCurrentScreen("login");
+  };
+
+  const navigateToRegister = () => {
+    setCurrentScreen("register");
+  };
+
+  const navigateToLogin = () => {
+    setCurrentScreen("login");
+  };
+
+  const handleLogout = () => {
+    setCurrentScreen("login");
+  };
+
+  const renderScreen = () => {
+    switch (currentScreen) {
+      case "login":
+        return (
+          <LoginScreen
+            onLoginSuccess={handleLoginSuccess}
+            onNavigateToRegister={navigateToRegister}
+          />
+        );
+      case "register":
+        return (
+          <RegisterScreen
+            onRegisterSuccess={handleRegisterSuccess}
+            onNavigateToLogin={navigateToLogin}
+          />
+        );
+      case "home":
+        return <HomeScreen onLogout={handleLogout} />;
+      default:
+        console.warn("Unknown screen state:", currentScreen);
+        return (
+          <LoginScreen
+            onLoginSuccess={handleLoginSuccess}
+            onNavigateToRegister={navigateToRegister}
+          />
+        );
+    }
+  };
+
+  return <div className="App">{renderScreen()}</div>;
 }
 
 export default App;
